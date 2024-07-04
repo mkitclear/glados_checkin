@@ -5,8 +5,8 @@ import os
 # github workflows
 # -------------------------------------------------------------------------------------------
 if __name__ == '__main__':
-    # pushplus秘钥 申请地址 http://www.pushplus.plus
-    sckey = os.environ.get("PUSHPLUS", "")
+    # server酱
+    sckey = os.environ.get('SCKEY')
 
     # 推送内容
     title = "Glados"
@@ -83,8 +83,8 @@ if __name__ == '__main__':
     print("sendContent:" + "\n", sendContent)
     if sckey != "":
         title += f': 成功{success},失败{fail}'
-        plusurl = f"http://www.pushplus.plus/send?token={sckey}&title={title}&content={sendContent}"
-        r = requests.get(plusurl)
-        print(r.status_code)
-
+        url = "https://sctapi.ftqq.com/{}.send?title={}&desp={}".format(sckey, title, sendContent)
+        r = requests.post(url)
+        print('推送完成',r.status_code)
+        
 
