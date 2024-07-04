@@ -36,7 +36,7 @@ jobs:
       run: |
         python checkin.py
       env:
-        PUSHPLUS: ${{ secrets.PUSHPLUS }}
+        SCKEY: ${{ secrets.SCKEY }}
         COOKIES: ${{ secrets.COOKIES }}
 
     - name: keep alive
